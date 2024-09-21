@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css?family=Kanit:400,800");
+
+@keyframes spin {
+  0% {
+    --rotate: 0deg;
+  }
+  100% {
+    --rotate: 360deg;
+  }
+}
+
+/* CSS */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Kanit", sans-serif;
+  letter-spacing: 3px;
+  background-color: #000;
+  color: #222;
+  padding-bottom: 50px;
+  position: relative;
+  z-index: 0;
+  overflow-x: hidden;
+  align-items: center;
+}
+
+.MaxContainer {
+  /* border: solid #fff; */
+  color: #000;
+  overflow-x: hidden;
+}
+
+
+.LeoFinanceNetwork {
+  /* border: solid #fff; */
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  margin-bottom: 200px;
+  z-index: -2;
+}
+
+#LeoLogo {
+  /* border: solid #fff; */
+  margin: 150px 0 50px 0;
+  height: 15rem;
+}
+
+.LeoFinanceNetwork h1 {
+  font-size: 40px;
+  text-shadow: 1px 1px 10px rgb(161, 76, 6);
+  margin: 20px 0 20px;
+  color: fff;
+}
+
+.LeoFinanceNetwork p {
+  font-size: 20px;
+  margin-left: 17.5%;
+  margin-right: 17.5%;
+  color: #555;
+  line-height: 30px;
+  letter-spacing: 1.2px;
+}
+
+.LeoFinanceNetwork h2 {
+  font-size: 150%;
+  margin: 10px 0;
+  color: #000;
+}
+
+.vision {
+  padding: 30px 0;
+  font-style: bold;
+  font-size: 20px;
+  margin: 50px 0 0 0;
+  color: #fff;
+  line-height: 1px;
+}
+
+/* Community */
+
+.community {
+  /* border: 1px solid rgb(255, 255, 255); */
+  max-width: 80%;
+  height: 5vh;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  z-index: 1;
+  letter-spacing: 10px;
+  position: relative;
+  transform: translateY(150);
+}
+
+
+.communityText {
+  /* border: 1px solid rgb(255, 255, 255); */
+  padding-top: 10px;
+}
+
+.communityText h1 {
+  /* border: 1px solid rgb(255, 255, 255); */
+  font-size: 40px;
+  margin: -20px 0 20px;
+  color: fff;
+  text-shadow: 1px 1px 15px rgb(158, 88, 7);
+}
+
+.communityText h2 {
+  border-color: rgb(0, 0, 0);
+  font-size: 150%;
+  margin: 10px 0;
+  color: rgb(255, 255, 255);
+}
+
+.communityText p {
+  font-size: 1rem;
+  /* border: 1px solid rgb(0, 0, 0); */
+  color: #555;
+  line-height: 30px;
+  letter-spacing: 1.2px;
+}
+
+.community .paragraphs {
+  margin: 50px 0 0 0;
+}
+
+.socialMediaIcon {
+  /* border: 1px solid #fff; */
+  background-color: transparent;
+  color: #fff;
+  cursor: pointer;
+  margin: 40px 10px 0 10px;
+  height:5rem;
+  text-decoration: none;
+}
