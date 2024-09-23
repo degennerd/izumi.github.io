@@ -17,7 +17,7 @@ window.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
           span.classList.remove("active");
           span.classList.add("fade");
-        }, (span + 1) * 50);
+        }, (span + 1) * 100);
       });
     }, 2000);
 
