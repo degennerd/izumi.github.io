@@ -9,8 +9,6 @@
   }
 }
 
-/* CSS */
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -24,8 +22,8 @@ html {
 body {
   font-family: "Kanit", sans-serif;
   letter-spacing: 3px;
-  background-color: #000;
-  color: #222;
+  background-color: #FDE4B9;
+  color: #000000;
   padding-bottom: 50px;
   position: relative;
   z-index: 0;
@@ -33,7 +31,7 @@ body {
   align-items: center;
 }
 
-/* Intro */
+/* ========== INTRO =========== */
 
 .intro {
   position: fixed;
@@ -101,6 +99,7 @@ body {
 
 /* NAV BAR */
 
+/* General styles for desktop */
 .nav {
   position: fixed;
   background-color: #222;
@@ -135,6 +134,14 @@ body {
   margin: 0 20px;
   transition: color 0.5s ease-in-out, font-weight 0.5s ease-in-out;
   letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+}
+
+.nav a img.nav-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
 }
 
 .nav h1 {
@@ -198,38 +205,87 @@ body {
   letter-spacing: 0.1rem;
 }
 
-/* Leo Intro*/
+/* Responsive for mobile */
+@media (max-width: 768px) {
+  /* Hide the logo and title */
+  #header-img,
+  .NavTitle {
+    display: none;
+  }
+
+  /* Hide the text next to icons */
+  .nav a {
+    justify-content: center; /* Center the icon */
+  }
+
+  .nav a img.nav-icon {
+    margin-right: 0; /* Remove margin between icon and text */
+  }
+
+  .nav a {
+    font-size: 0; /* Hide the text by reducing font size to 0 */
+  }
+
+  /* Adjust the padding and layout for mobile */
+  .nav .container {
+    padding: 10px 0;
+    justify-content: center;
+  }
+
+  /* Stack the icons vertically if needed */
+  .nav ul {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+
+
+/* ========== MAIN ========== */
 
 .LeoFinanceNetwork {
-  /* border: solid #fff; */
-  height: 90vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: #fff;
   position: relative;
-  margin-bottom: 200px;
-  z-index: -2;
+  width: 75vw;
+  height: 75vh;
+  margin: 15vh auto 10vh;
+  overflow: hidden;
+}
+
+.LeoFinanceNetwork::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('bg_horiz.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.7;
+  z-index: 0;
+}
+
+.LeoFinanceNetwork .topContainer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
 }
 
 #LeoLogo {
-  /* border: solid #fff; */
-  margin: 150px 0 50px 0;
+  margin: 150px 0 50px;
   height: 15rem;
 }
 
 .LeoFinanceNetwork h1 {
   font-size: 40px;
   text-shadow: 1px 1px 10px rgb(161, 76, 6);
-  margin: 20px 0 20px;
-  color: fff;
+  margin: 20px 0;
+  color: #fff;
 }
 
 .LeoFinanceNetwork p {
   font-size: 20px;
-  margin-left: 17.5%;
-  margin-right: 17.5%;
+  margin: 0 17.5%;
   color: #555;
   line-height: 30px;
   letter-spacing: 1.2px;
@@ -243,17 +299,27 @@ body {
 
 .vision {
   padding: 30px 0;
-  font-style: bold;
+  font-weight: bold;
   font-size: 2rem;
-  margin: 50px 0 0 0;
+  margin: 50px 0 0;
   color: #fff;
   line-height: 1px;
   text-shadow: 1px 1px 10px #ffc229;
 }
 
+@media (max-width: 768px) {
+  .LeoFinanceNetwork::before {
+    background-image: url('bg_vert.png');
+  }
 
+  .LeoFinanceNetwork {
+    width: 95vw;
+    height: 95vh;
+  }
+}
 
 /* GRID */
+
 .custom-grid-container {
   display: grid;
   margin-bottom: 20px !important;
@@ -267,8 +333,6 @@ body {
 
 .custom-grid-item {
   text-align: center;
-  padding: 20px;
-  border: 1px solid #ccc;
   overflow: hidden; 
 }
 
@@ -283,7 +347,6 @@ body {
   font-size: 16px;
   color: #333;
 }
-
 
 @media (max-width: 768px) {
   .custom-grid-container {

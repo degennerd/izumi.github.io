@@ -512,3 +512,8 @@ function academyThrottle(academycb, delay = 1000) {
 const opentest = function () {
   window.open("https://leofinance.io");
 };
+
+
+
+
+
