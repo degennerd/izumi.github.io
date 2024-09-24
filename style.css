@@ -89,7 +89,13 @@ body {
   color: rgb(70, 69, 69);
 }
 
-/* Max Container*/
+@media (max-width: 768px) {
+  .intro img {
+    transform: translateX(-12%);
+  }
+}
+
+/* ========== Max Container ========== */
 
 .MaxContainer {
   /* border: solid #fff; */
@@ -97,9 +103,9 @@ body {
   overflow-x: hidden;
 }
 
-/* NAV BAR */
+/* ========== NAV BAR ========== */
 
-/* General styles for desktop */
+
 .nav {
   position: fixed;
   background-color: #222;
@@ -205,34 +211,29 @@ body {
   letter-spacing: 0.1rem;
 }
 
-/* Responsive for mobile */
 @media (max-width: 768px) {
-  /* Hide the logo and title */
   #header-img,
   .NavTitle {
     display: none;
   }
 
-  /* Hide the text next to icons */
   .nav a {
-    justify-content: center; /* Center the icon */
+    justify-content: center;
   }
 
   .nav a img.nav-icon {
-    margin-right: 0; /* Remove margin between icon and text */
+    margin-right: 0;
   }
 
   .nav a {
-    font-size: 0; /* Hide the text by reducing font size to 0 */
+    font-size: 0; 
   }
 
-  /* Adjust the padding and layout for mobile */
   .nav .container {
     padding: 10px 0;
     justify-content: center;
   }
 
-  /* Stack the icons vertically if needed */
   .nav ul {
     flex-direction: row;
     justify-content: space-around;
@@ -318,7 +319,7 @@ body {
   }
 }
 
-/* GRID */
+/* ========== GRID ========== */
 
 .custom-grid-container {
   display: grid;
@@ -332,20 +333,38 @@ body {
 }
 
 .custom-grid-item {
-  text-align: center;
-  overflow: hidden; 
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  text-align: center; 
+  overflow: hidden;
 }
 
 .custom-grid-item img {
   width: 100%; 
   height: auto; 
   max-height: 100%;
-  object-fit: contain; 
+  object-fit: contain;
 }
 
 .custom-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   font-size: 16px;
   color: #333;
+}
+
+.custom-text h3 {
+  margin-bottom: 10px;
+}
+
+.custom-text p {
+  font-size: 14px;
+  color: #555;
+  margin: 0;
+  text-align: center;
 }
 
 @media (max-width: 768px) {
@@ -359,7 +378,7 @@ body {
 }
 
 
-/* MANGA */
+/* ========== MANGA ========== */
 
     .manga-container {
       margin-top: 200px !important;
