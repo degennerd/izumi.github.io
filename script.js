@@ -136,7 +136,7 @@ window.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       document.body.classList.add('overflow-visible'); // Show the scrollbar smoothly
     }, 500); // Time should match the CSS transition duration (0.5s)
-  }, 7000); // 2000 milliseconds = 2 seconds
+  }, 6000); // 2000 milliseconds = 2 seconds
 });
 
 
@@ -155,14 +155,14 @@ setTimeout(() => {
       izumibarks.classList.remove('barkhidden'); // Show the second image
   }, 1); // Show the second image after 0.5 seconds of fading out
 
-  // Hide the second image after 1 second
+  // Hide the second image after 1 second (this will last 1 second)
   setTimeout(() => {
-      izumibarks.classList.add('barkhidden');
+      izumibarks.classList.add('barkhidden'); // Start fading out the second image
 
       // Remove both images from the DOM after hiding
       setTimeout(() => {
           izumistands.remove();
           izumibarks.remove();
-      }, -100); // Duration to show the second image
+      }, 1000); // Allow 1 second for fading out before removal
   }, 2000); // Total time to show the second image (after showing it)
-}, 7000); // Duration before switching to the second image
+}, 5500); // Duration before switching to the second image

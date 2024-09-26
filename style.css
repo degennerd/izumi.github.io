@@ -245,15 +245,24 @@ body {
 
 .bark {
   position: fixed;
-  top: 150px; /* Adjust top position as needed */
-  right: 75px; /* Adjust right position as needed */
+  top: 150px; /* Default top position for desktop */
+  right: 70px; /* Default right position for desktop */
   width: 100px; /* Set width to 100 pixels */
   height: 100px; /* Maintain 1:1 ratio */
   transition: opacity 1s; /* Smooth transition for opacity */
+  z-index: 3;
 }
 
 .barkhidden {
   opacity: 0; /* Hidden state */
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 600px) { /* Adjust the max-width as needed for your breakpoints */
+  .bark {
+    top: 50px; /* Top position for mobile */
+    right: 50px; /* Right position for mobile */
+  }
 }
 
 /* ========== MAIN ========== */
@@ -613,12 +622,13 @@ body {
     .show-scrollbar {
       overflow: hidden; /* Initially hidden for the transition effect */
       padding-right: 15px; /* Adjust width equivalent to the scrollbar size */
-      transition: padding-right 0.5s ease; /* Smooth transition of padding */
+      transition: padding-right 0.5s ease, overflow 0s 0.5s; /* Smooth transition of padding and delay overflow change */
     }
     
     .show-scrollbar.overflow-visible {
       overflow: auto; /* Enable scrollbar smoothly after the padding transition */
       padding-right: 0; /* Restore padding back to normal */
+      transition: padding-right 0.5s ease; /* Ensure padding transition remains smooth */
     }
     
     /* WebKit browsers (Chrome, Safari, Edge) */
