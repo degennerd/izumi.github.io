@@ -260,7 +260,7 @@ body {
 /* Media Query for Mobile Devices */
 @media (max-width: 600px) { /* Adjust the max-width as needed for your breakpoints */
   .bark {
-    top: 50px; /* Top position for mobile */
+    top: 80px; /* Top position for mobile */
     right: 50px; /* Right position for mobile */
   }
 }
