@@ -138,7 +138,7 @@ body {
   text-decoration: none;
   padding: 7px 15px;
   margin: 0 20px;
-  transition: color 0.5s ease-in-out, font-weight 0.5s ease-in-out;
+  transition: color 0.3s ease-in-out, font-weight 0.5s ease-in-out;
   letter-spacing: 1px;
   display: flex;
   align-items: center;
@@ -165,7 +165,7 @@ body {
 
 .nav a.current,
 .nav a:hover {
-  color: #c0392b;
+  color: #f98f04;
   font-weight: bold;
 }
 
@@ -264,6 +264,7 @@ body {
   background-repeat: no-repeat;
   opacity: 0.5;
   z-index: 0;
+  border-radius: 25px;
 }
 
 .LeoFinanceNetwork .topContainer {
@@ -377,6 +378,116 @@ body {
     margin: 0 auto;
   }
 }
+
+
+/* ========== NARRATIVE ========== */
+
+.narrative-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* Left image is wider */
+  height: auto; /* Allow height to adjust based on content */
+  width: 75vw; 
+  margin: 20vh auto; 
+  gap: 10px; 
+  overflow: auto; /* Enable scrolling */
+}
+
+.narrative-left {
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  margin-right: 1vw;
+  overflow: auto; /* Enable scrolling */
+}
+
+.narrative-left img {
+  width: 100%; 
+  height: auto; /* Maintain aspect ratio */
+  max-height: 100%; /* Ensure it fits within the grid */
+  object-fit: contain; 
+  border-radius: 25px;
+  transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
+
+.narrative-left img:hover {
+  transform: scale(0.98); /* Slightly scale down on hover */
+}
+
+.narrative-right {
+  display: grid; 
+  grid-template-rows: repeat(4, 1fr); 
+  gap: 10px; 
+  overflow: auto; /* Enable scrolling */
+}
+
+.narrative {
+  background-color: #f1a645; 
+  border-radius: 8px; 
+  display: flex; 
+  flex-direction: column; /* Arrange children in a column */
+  justify-content: center; 
+  align-items: center; 
+  height: 100%; /* Ensure the height takes full available space */
+  padding: 10px; /* Optional: add some padding for better spacing */
+  transition: background-color 0.3s, transform 0.3s; /* Smooth transition for hover effects */
+  overflow: hidden;
+}
+
+.narrative:hover {
+  background-color: #f98f04; /* Change background color on hover */
+  transform: scale(0.98); /* Slightly scale up on hover */
+  cursor: pointer; /* Change cursor to pointer */
+  overflow: hidden;
+}
+
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  left: 0; 
+  top: 0; 
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgba(0, 0, 0, 0.9); 
+}
+
+.modal-content {
+  margin: auto; 
+  display: block; 
+  max-width: 80%; 
+  max-height: 80%; 
+  transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
+
+.close {
+  position: absolute; 
+  top: 20px; 
+  right: 35px; 
+  color: #fff; 
+  font-size: 40px; 
+  font-weight: bold; 
+  cursor: pointer; 
+}
+
+.narrative p {
+  text-align: center;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .narrative-container {
+      grid-template-columns: 1fr; /* Stack columns on small screens */
+      height: auto; /* Allow height to adjust based on content */
+  }
+
+  .narrative-left {
+      margin-right: 0; /* Remove right margin on mobile */
+  }
+}
+
+
+
 
 
 /* ========== MANGA ========== */

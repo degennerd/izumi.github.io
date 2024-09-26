@@ -513,7 +513,46 @@ const opentest = function () {
   window.open("https://leofinance.io");
 };
 
+// NARRATIVE
 
+const imageModal = document.getElementById("image-modal");
+const modalImage = document.getElementById("modal-image");
+const clickableImage = document.querySelector(".clickable-image");
+const closeModal = document.querySelector(".close");
+
+// Open modal on left image click
+clickableImage.addEventListener("click", (event) => {
+    event.preventDefault(); 
+    imageModal.style.display = "flex"; 
+    modalImage.src = clickableImage.src; 
+    modalImage.style.transform = "scale(1.5)"; // Enlarge to 2x when opened
+});
+
+// Function to close modal
+function closeModalFunction() {
+    imageModal.style.display = "none"; 
+    modalImage.style.transform = "scale(1)"; 
+}
+
+// Close modal on clicking the close button
+closeModal.addEventListener("click", closeModalFunction);
+
+// Close modal when clicking outside the image
+window.addEventListener("click", (event) => {
+    if (event.target === imageModal || event.target === modalImage) {
+        closeModalFunction();
+    }
+});
+
+// Add click event to each narrative item
+const narratives = document.querySelectorAll('.narrative');
+
+narratives.forEach(narrative => {
+    narrative.addEventListener('click', () => {
+        const url = narrative.getAttribute('data-url');
+        window.open(url, '_blank'); // Open the URL in a new tab/window
+    });
+});
 
 
 
