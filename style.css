@@ -31,6 +31,7 @@ body {
   align-items: center;
 }
 
+
 /* ========== INTRO =========== */
 
 .intro {
@@ -240,6 +241,20 @@ body {
   }
 }
 
+/* ========== BARK */
+
+.bark {
+  position: fixed;
+  top: 150px; /* Adjust top position as needed */
+  right: 75px; /* Adjust right position as needed */
+  width: 100px; /* Set width to 100 pixels */
+  height: 100px; /* Maintain 1:1 ratio */
+  transition: opacity 1s; /* Smooth transition for opacity */
+}
+
+.barkhidden {
+  opacity: 0; /* Hidden state */
+}
 
 /* ========== MAIN ========== */
 
@@ -347,7 +362,17 @@ body {
   height: auto; 
   max-height: 100%;
   object-fit: contain;
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Add transition for smooth hover effect */
 }
+
+/* Hover effect for clickable images */
+
+.custom-grid-item img:hover {
+  transform: scale(0.98); /* Slight zoom effect */
+  opacity: 0.9; /* Slight opacity change */
+  cursor: pointer; /* Change cursor to indicate clickable */
+}
+
 
 .custom-text {
   display: flex;
@@ -377,8 +402,58 @@ body {
     height: 90vh;
     margin: 0 auto;
   }
+  .custom-text h3{
+    font-size: 14px;
+  }
+  .custom-text p {
+    font-size: 12px;
+  }
 }
 
+/* Modal Styles */
+
+.gallery-modal {
+  display: none; /* Make sure the modal is hidden initially */
+  position: fixed; 
+  z-index: 9999; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gallery-modal-content {
+  max-width: 80%;
+  max-height: 80%;
+  transform: scale(1.5);
+  transition: transform 0.3s ease-in-out;
+}
+
+.gallery-modal-content:hover {
+  cursor: pointer;
+}
+
+.gallery-close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: #fff;
+  font-size: 35px;
+  font-weight: bold;
+  z-index: 10000;
+}
+
+.gallery-close:hover,
+.gallery-close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
 
 /* ========== NARRATIVE ========== */
 
@@ -486,10 +561,6 @@ body {
   }
 }
 
-
-
-
-
 /* ========== MANGA ========== */
 
     .manga-container {
@@ -532,3 +603,49 @@ body {
       }
     }
     
+    /* SCROLLBAR */
+
+    .hide-scrollbar {
+      overflow: hidden; /* Hides the scrollbar */
+    }
+    
+    /* Smooth transition for showing scrollbar */
+    .show-scrollbar {
+      overflow: hidden; /* Initially hidden for the transition effect */
+      padding-right: 15px; /* Adjust width equivalent to the scrollbar size */
+      transition: padding-right 0.5s ease; /* Smooth transition of padding */
+    }
+    
+    .show-scrollbar.overflow-visible {
+      overflow: auto; /* Enable scrollbar smoothly after the padding transition */
+      padding-right: 0; /* Restore padding back to normal */
+    }
+    
+    /* WebKit browsers (Chrome, Safari, Edge) */
+    html::-webkit-scrollbar {
+      width: 12px; /* Width of the scrollbar */
+      height: 15vh; /* Fixed height of the scrollbar */
+      position: fixed; /* Fix scrollbar to the viewport */
+      bottom: 0; /* Position it at the bottom */
+    }
+    
+    html::-webkit-scrollbar-track {
+      background: #FDE4B9; /* Background color of the scrollbar track */
+    }
+    
+    html::-webkit-scrollbar-thumb {
+      background-color: #f1a645; /* Color of the scrollbar thumb */
+      border-radius: 10px; /* Rounded edges for the scrollbar */
+      border: 2px solid #f1f1f1; /* Optional: Adds space around the thumb */
+    }
+    
+    html::-webkit-scrollbar-thumb:hover {
+      background-color: #FDE4B9; /* Darker color when hovered */
+    }
+    
+    /* Firefox */
+    body {
+      scrollbar-width: thin; /* Makes the scrollbar thinner */
+      scrollbar-color: #888 #f1f1f1; /* Thumb color, track color */
+    }
+
