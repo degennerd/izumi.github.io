@@ -72,6 +72,11 @@ window.addEventListener("click", (event) => {
     }
 });
 
+// Close modal when clicking the modal image again
+modalImage.addEventListener("click", () => {
+  closeNarrativeModal();
+});
+
 // Add click event to each narrative item
 const narratives = document.querySelectorAll('.narrative');
 narratives.forEach(narrative => {
@@ -136,7 +141,7 @@ window.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       document.body.classList.add('overflow-visible'); // Show the scrollbar smoothly
     }, 500); // Time should match the CSS transition duration (0.5s)
-  }, 6000); // 2000 milliseconds = 2 seconds
+  }, 5000); // 2000 milliseconds = 2 seconds
 });
 
 
@@ -165,4 +170,84 @@ setTimeout(() => {
           izumibarks.remove();
       }, 1000); // Allow 1 second for fading out before removal
   }, 2000); // Total time to show the second image (after showing it)
-}, 5500); // Duration before switching to the second image
+}, 4500); // Duration before switching to the second image
+
+// MASSIVE GALLERY
+
+document.addEventListener('DOMContentLoaded', function () {
+  const carousels = document.querySelectorAll('.carousel');
+  const modal = document.getElementById('imageModal');
+  const modalImage = document.getElementById('modalImage');
+  const captionText = document.getElementById('caption');
+  const closeModal = document.querySelector('.close');
+
+  carousels.forEach(carousel => {
+    const track = carousel.querySelector('.carousel-track');
+    const images = track.children;
+    let currentIndex = 0;
+    const totalImages = images.length;
+
+    // Create buttons
+    const leftBtn = document.createElement('button');
+    leftBtn.classList.add('carousel-btn', 'left');
+    leftBtn.innerHTML = '&#10094;'; // Left arrow
+    const rightBtn = document.createElement('button');
+    rightBtn.classList.add('carousel-btn', 'right');
+    rightBtn.innerHTML = '&#10095;'; // Right arrow
+
+    carousel.appendChild(leftBtn);
+    carousel.appendChild(rightBtn);
+
+    // Function to update the track position
+    const updateCarousel = () => {
+      // Calculate width with correct margins
+      const imageStyle = window.getComputedStyle(images[0]);
+      const marginLeft = parseInt(imageStyle.marginLeft, 10);
+      const marginRight = parseInt(imageStyle.marginRight, 10);
+      const imageWidth = images[0].clientWidth + marginLeft + marginRight; // +20 for margin
+      track.style.transform = `translateX(-${currentIndex * imageWidth}px)`;
+    };
+
+    // Move left (no looping)
+    leftBtn.addEventListener('click', () => {
+      if (currentIndex > 0) {
+        currentIndex -= 2; // Decrement by 2 for visible images
+        updateCarousel();
+      }
+    });
+
+    // Move right (no looping)
+    rightBtn.addEventListener('click', () => {
+      if (currentIndex < totalImages - (window.innerWidth < 768 ? 2 : 4)) {
+        currentIndex += 2; // Increment by 2 for visible images
+        updateCarousel();
+      } else if (currentIndex === totalImages - (window.innerWidth < 768 ? 2 : 4)) {
+        // If at the last two images, just ensure it stops at the last available position
+        currentIndex = totalImages - (window.innerWidth < 768 ? 2 : 4); // Prevent going beyond the last visible image
+        updateCarousel();
+      }
+    });
+
+    // Add click event to each image to open modal
+    Array.from(images).forEach(image => {
+      image.addEventListener('click', () => {
+        modal.style.display = 'block';
+        modalImage.src = image.src; // Set modal image to clicked image
+        captionText.innerHTML = image.alt; // Set caption to alt text
+      });
+    });
+
+    updateCarousel();
+  });
+
+  // Close modal when clicking on close button or anywhere outside the image
+  closeModal.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+
+  modal.addEventListener('click', (event) => {
+    if (event.target === modal || event.target === modalImage) {
+      modal.style.display = 'none';
+    }
+  });
+});
