@@ -32,7 +32,7 @@ body {
 }
 
 
-/* ========== INTRO =========== */
+/* =========================================================================================== INTRO =========================================================================================== */
 
 .intro {
   position: fixed;
@@ -96,7 +96,7 @@ body {
   }
 }
 
-/* ========== Max Container ========== */
+/* =========================================================================================== Max Container =========================================================================================== */
 
 .MaxContainer {
   /* border: solid #fff; */
@@ -104,16 +104,20 @@ body {
   overflow-x: hidden;
 }
 
-/* ========== NAV BAR ========== */
+/* =========================================================================================== NAV BAR =========================================================================================== */
+
 
 
 .nav {
-  position: fixed;
+  display: flex;
+  justify-content: space-between; /* Adjust as needed */
+  align-items: center;
   background-color: #222;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  padding-right: 20px;
+  padding: 1rem; /* Adjusted from 20px */
   transition: all 1s ease-in-out;
   z-index: 99;
 }
@@ -122,16 +126,19 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0;
+  width: 100%
 }
 
-.nav ul {
+.nav-items {
   display: flex;
-  font-size: 1rem;
   font-weight: bold;
   list-style-type: none;
   align-items: center;
   justify-content: center;
+}
+
+.nav-item {
+  font-size:2rem
 }
 
 .nav a {
@@ -146,9 +153,7 @@ body {
 }
 
 .nav a img.nav-icon {
-  width: 20px;
-  height: 20px;
-  margin-right: 8px;
+  width: 2rem;
 }
 
 .nav h1 {
@@ -164,20 +169,16 @@ body {
   padding: 5px 0;
 }
 
-.nav a.current,
-.nav a:hover {
-  color: #f98f04;
-  font-weight: bold;
-}
-
 #header-img {
   height: 4rem;
+  max-width: 150px; /* Set a maximum width for the logo */
   padding: 0 20px;
   transition: height 1s ease-in-out;
 }
 
 .nav.active #header-img {
   height: 3rem;
+  max-width: 100px; /* Set a maximum width for the logo */
 }
 
 .title {
@@ -193,23 +194,66 @@ body {
   height: 2px;
 }
 
-.nav.active .navNetwork {
-  height: 1.5rem;
-}
-
 .LogoTitle {
   display: flex;
 }
 
-.NavNetwork {
-  color: #555;
-  line-height: 1.5rem;
-  letter-spacing: 0.8px;
+
+
+
+/* =================================================================================== Language Menu Styles ========================================================================== */
+
+
+
+
+.language-menu {
+  position: relative;
 }
 
-.NavNetwork.active {
-  line-height: 1rem;
-  letter-spacing: 0.1rem;
+.dropdown-btn {
+  background-color: #ffffff; /* Button background color */
+  color: black;
+  border: none;
+  padding: 5px 7.5px;
+  width: 80px;
+  cursor: pointer; /* Change cursor to pointer */
+  border-radius: 2px; /* Optional: Rounded corners */
+  transition: background-color 0.3s, transform 0.2s; /* Add transition effects */
+  margin-right: 50px
+}
+
+.dropdown-btn:focus {
+  outline: none; /* Remove outline */
+}
+
+.dropdown-btn:hover {
+  background-color: #ffb74d; /* Change on hover */
+}
+
+.dropdown-content {
+  display: none; /* Initially hidden */
+  position: absolute;
+  background-color: #222;
+  font-size: 12px !important;
+  color: black;
+  z-index: 1;
+  border-radius: 5px; /* Optional: Rounded corners */
+  margin: 0; /* Remove any potential margins */
+  box-sizing: border-box; /* Ensure padding and borders are included in width */
+}
+
+.dropdown-item {
+  transition: background-color 0.3s; /* Transition for hover effect */
+  border-bottom: 1px solid white; /* Optional: Add border between items */
+  box-sizing: border-box; /* Prevent items from overflowing */
+}
+
+.dropdown-item:last-child {
+  border-bottom: none; /* Remove border from the last item */
+}
+
+.dropdown-item:hover {
+  background-color: #f1f1f1; /* Change background on hover */
 }
 
 @media (max-width: 768px) {
@@ -220,14 +264,17 @@ body {
 
   .nav a {
     justify-content: center;
+    font-size: 0;
+    padding: 0.1px;
+    margin: 0 10px;
+  }
+
+  .nav-items {
+    font-size: 1rem;
   }
 
   .nav a img.nav-icon {
     margin-right: 0;
-  }
-
-  .nav a {
-    font-size: 0; 
   }
 
   .nav .container {
@@ -239,9 +286,23 @@ body {
     flex-direction: row;
     justify-content: space-around;
   }
+
+  .nav a img.nav-icon {
+    width: 1.5rem;
+  }
+
+  .language-menu {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+  }
 }
 
-/* ========== BARK */
+
+
+
+
+/* =========================================================================================== BARK =========================================================================================== */
 
 .bark {
   position: fixed;
@@ -265,7 +326,7 @@ body {
   }
 }
 
-/* ========== MAIN ========== */
+/* =========================================================================================== MAIN =========================================================================================== */
 
 .LeoFinanceNetwork {
   position: relative;
@@ -345,7 +406,7 @@ body {
   }
 }
 
-/* ========== GRID ========== */
+/* =========================================================================================== GRID =========================================================================================== */
 
 .custom-grid-container {
   display: grid;
@@ -419,7 +480,7 @@ body {
   }
 }
 
-/* Modal Styles */
+/* =========================================================================================== Modal Styles =========================================================================================== */
 
 .gallery-modal {
   display: none; /* Make sure the modal is hidden initially */
@@ -464,7 +525,7 @@ body {
   cursor: pointer;
 }
 
-/* ========== NARRATIVE ========== */
+/* =========================================================================================== NARRATIVE =========================================================================================== */
 
 .narrative-container {
   display: grid;
@@ -571,7 +632,13 @@ body {
 }
 
 
-/* ============== Gallery container ================= */
+
+
+/* =========================================================================================== Gallery container ======================================================================================= */
+
+
+
+
 .izumi-gallery {
   height: 80vh; /* Set height to 80% of the viewport height */
   width: 80vw;  /* Set width to 80% of the viewport width */
@@ -654,7 +721,6 @@ body {
   width: 100%;
   height: 100%;
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
 }
 
@@ -723,7 +789,7 @@ body {
 }
 
 
-/* ========== MANGA ========== */
+/* =========================================================================================== MANGA =========================================================================================== */
 
     .manga-container {
       margin-top: 10vh !important;
@@ -765,7 +831,7 @@ body {
       }
     }
     
-    /* SCROLLBAR */
+    /* =========================================================================================== SCROLLBAR =========================================================================================== */
 
     .hide-scrollbar {
       overflow: hidden; /* Hides the scrollbar */
@@ -811,4 +877,167 @@ body {
       scrollbar-width: thin; /* Makes the scrollbar thinner */
       scrollbar-color: #888 #f1f1f1; /* Thumb color, track color */
     }
+
+
+
+/* =========================================================================================== MERCH STORE =========================================================================================== */
+.merch-container {
+  width: 90%;
+  margin: auto;
+  padding-top: 20px;
+}
+
+.merch-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.merch-products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.merch-product {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.merch-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.merch-img:hover {
+  transform: scale(1.05);
+}
+
+.merch-name {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.merch-desc {
+  font-size: 16px;
+  color: #666;
+}
+
+.merch-price {
+  font-size: 20px;
+  color: #333;
+  margin: 10px 0;
+}
+
+.merch-add-to-cart {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.merch-add-to-cart:hover {
+  background-color: #218838;
+}
+
+/* Modal Styles */
+.merch-modal {
+  display: none; 
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.merch-modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-height: 60vh; /* Set maximum height for the modal */
+  overflow-y: auto; /* Enable scrolling if content overflows */
+}
+
+.merch-close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.merch-close:hover,
+.merch-close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.merch-enlarged-img {
+  width: 100%;
+  height: auto;
+}
+
+/* Cart Button */
+.merch-cart-button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block; /* Centering */
+  margin: 20px auto; /* Space from product section */
+  text-align: center; /* Center text */
+}
+
+.merch-cart-button:hover {
+  background-color: #0056b3;
+}
+
+/* Message Box for Adding to Cart */
+.message-box {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  display: none; /* Hidden by default */
+  z-index: 999; /* Ensure it’s on top */
+}
+
+/* Active state for buttons */
+.merch-add-to-cart.active,
+.merch-cart-button.active {
+  transform: scale(0.95);
+  background-color: #218838; /* Darker shade when clicked */
+  transition: transform 0.1s ease; /* Smooth transition */
+}
+
+.cart-confirmation-message {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #28a745; /* Green background */
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Make sure it appears above other content */
+  transition: opacity 0.5s ease; /* Optional fade effect */
+}
+
 
