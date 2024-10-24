@@ -219,7 +219,7 @@ body {
   cursor: pointer; /* Change cursor to pointer */
   border-radius: 2px; /* Optional: Rounded corners */
   transition: background-color 0.3s, transform 0.2s; /* Add transition effects */
-  margin-right: 50px
+  margin-right: 50px;
 }
 
 .dropdown-btn:focus {
@@ -234,7 +234,6 @@ body {
   display: none; /* Initially hidden */
   position: absolute;
   background-color: #222;
-  font-size: 12px !important;
   color: black;
   z-index: 1;
   border-radius: 5px; /* Optional: Rounded corners */
@@ -243,19 +242,24 @@ body {
 }
 
 .dropdown-item {
+  padding: 5px 5px; /* Add padding for better spacing */
   transition: background-color 0.3s; /* Transition for hover effect */
-  border-bottom: 1px solid white; /* Optional: Add border between items */
+  border-bottom: none; /* Removed border between items */
   box-sizing: border-box; /* Prevent items from overflowing */
+  display: flex; /* Make sure items align properly */
+  align-items: center; /* Vertically center items */
 }
 
-.dropdown-item:last-child {
-  border-bottom: none; /* Remove border from the last item */
+.dropdown-item img.flag-icon {
+  width: 30px !important; /* Ensure flag has a visible size */
+  height: auto; /* Maintain aspect ratio */
 }
 
 .dropdown-item:hover {
   background-color: #f1f1f1; /* Change background on hover */
 }
 
+/* Mobile Responsive */
 @media (max-width: 768px) {
   #header-img,
   .NavTitle {
@@ -264,7 +268,7 @@ body {
 
   .nav a {
     justify-content: center;
-    font-size: 0;
+    font-size: 10;
     padding: 0.1px;
     margin: 0 10px;
   }
@@ -294,9 +298,45 @@ body {
   .language-menu {
     position: absolute;
     top: 20px;
-    right: 10px;
+    right: 5px;
+    max-width: 80px;
+  }
+
+  .dropdown-btn {
+    background-color: #222; /* Button background color */
+    padding: 1px 1px;
+    width: 40px;
+    margin-right: 10px;
+  }
+
+  .dropdown-content {
+    position: absolute;
+    display: block; /* Show dropdown in mobile */
+    top: 25px;
+    box-sizing: border-box; /* Ensure padding is included in width */
+    margin-right: 20px;
+  }
+
+  .dropdown-item {
+    padding: 7.5px 0 !important;
+    margin: 5px 0; /* Add space between dropdown items */
+    font-size: 16px; /* Increase font size for mobile readability */
+    display: flex; /* Ensure layout consistency */
+    align-items: center; /* Vertically center flag and text */
+  }
+
+  .dropdown-item img.flag-icon {
+    margin-right: 10px; /* Add space between flag and text */
+    width: 24px; /* Set a proper width for the flag */
+    height: auto; /* Maintain aspect ratio */
+    padding: 5px 0 !important;
+  }
+
+  .dropdown-item:hover {
+    background-color: #f1f1f1;
   }
 }
+
 
 
 
